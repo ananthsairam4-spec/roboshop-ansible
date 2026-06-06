@@ -28,7 +28,7 @@
   - name: create r53 records
     amazon.aws.route53:
       state: present
-      zone: "{{ domain_name }}"
+      zone: "{{ mongodb.sairamdaws.online }}"
       record: "{{ item.item }}.{{ mongodb.sairamdaws.online }}" #mongodb.sairamdaws.online
       type: A
       ttl: 1
@@ -39,8 +39,8 @@
   - name: create r53 record for frontend
     amazon.aws.route53:
       state: present
-      zone: "{{ domain_name }}"
-      record: "{{ domain_name }}" #daws90s.shop
+      zone: "{{ mongodb.sairamdaws.online }}"
+      record: "{{ frontend.sairamdaws.online }}"
       type: A
       ttl: 1
       value: "{{ item.instances[0].public_ip_address }}"

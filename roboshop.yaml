@@ -4,6 +4,7 @@
   vars:
     instances: ["mongodb", "redis", "mysql", "rabbitmq"]
     image_id: "ami-0220d79f3f480ecf5"
+    domain_name: "sairamdaws.online
   tasks:
   - name: create ec2 instances
     amazon.aws.ec2_instance:
@@ -28,8 +29,8 @@
   - name: create r53 records
     amazon.aws.route53:
       state: present
-      zone: "{{ domain_name }}"
-      record: "{{ item.item }}.{{ domain_name }}"
+      zone: "{{ sairamdaws.online }}"
+      record: "{{ item.item }}.{{ sairamdaws.online }}"
       type: A
       ttl: 1
       value: "{{ item.instances[0].private_ip_address }}"
@@ -39,8 +40,8 @@
   - name: create r53 record for frontend
     amazon.aws.route53:
       state: present
-      zone: "{{ domain_name }}"
-      record: "{{ domain_name }}"
+      zone: "{{ sairamdaws.online }}"
+      record: "{{ sairamdaws.online }}"
       type: A
       ttl: 1
       value: "{{ item.instances[0].public_ip_address }}"

@@ -39,7 +39,7 @@
   - name: create r53 record for frontend
     amazon.aws.route53:
       state: present
-      zone: "{{ mongodb.sairamdaws.online }}"
+      zone: "{{ frontend.sairamdaws.online }}"
       record: "{{ frontend.sairamdaws.online }}"
       type: A
       ttl: 1

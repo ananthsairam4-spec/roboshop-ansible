@@ -17,7 +17,7 @@
       - roboshop-common   
     loop: "{{ instances }}"
     register: ec2_output
-    when: state_action == "create"
+    when: action == "create"
 
   # - name: print output
   #   debug:
@@ -38,7 +38,7 @@
       value: "{{ item.instances[0].private_ip_address }}"
       overwrite: true
     loop: "{{ ec2_output.results }}"
-    when: state_action == "create"
+    when: action == "create"
 
   - name: create r53 record for frontend
     amazon.aws.route53:
@@ -52,7 +52,7 @@
     loop: "{{ ec2_output.results }}"
     when: 
     - item.item == "frontend"
-    - state_action == "create"
+    - action == "create"
  
   - name : delete r53 records
     amazon.aws.route53:
@@ -62,7 +62,7 @@
       ttl: 1
       type: A
     loop: "{{ instances }}" 
-    when: state_action == "delete"
+    when: action == "delete"
 
   - name: delete r53 record for frontend
     amazon.aws.route53:
@@ -73,7 +73,7 @@
       type: A
     loop: "{{ instances }}" 
     when:
-    - state_action == "delete"
+    - action == "delete"
     - item == "frontend"
   
 
@@ -83,7 +83,7 @@
       name: "roboshop-{{ item }}"
       wait: false
     loop: "{{ instances }}"
-    when: state_action == "delete"
+    when: action == "delete"
 
     
       

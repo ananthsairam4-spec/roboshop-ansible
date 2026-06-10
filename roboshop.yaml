@@ -2,7 +2,7 @@
   hosts: local
   connection: local
   vars:
-    instances: ["mongodb", "redis", "mysql", "rabbitmq", "catalouge", "frontend"]
+    instances: ["mongodb", "redis", "mysql", "rabbitmq", "catalogue", frontend"]
     image_id: "ami-0220d79f3f480ecf5"
     domain_name: "sairamdaws.online"
     action: create

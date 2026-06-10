@@ -1,0 +1,2 @@
+ansible_user: ec2user
+ansible_password: DevOps321

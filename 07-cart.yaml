@@ -1,6 +1,8 @@
 - name: configure cart server
   hosts: cart
   become: yes
+  vars:
+    REDIS_HOST: redis.sairamdaws.online
   tasks:
   - name: enable nodejs 20
     command: dnf module enable nodejs:20 -y

@@ -19,7 +19,7 @@
     file:
      path: /app
      state: absent
-   - name: delete user.zip in /tmp
+  - name: delete user.zip in /tmp
     file:
       path: /tmp/user.zip
       state: absent

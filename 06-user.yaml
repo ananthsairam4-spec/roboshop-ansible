@@ -3,7 +3,7 @@
   become: yes
   vars:
     REDIS_HOST: redis.sairamdaws.online
-    MONGO_HOST: mongodb.sairamdaws.online
+    MONGODB_HOST: mongodb.sairamdaws.online
   tasks:
   - name: enable nodejs 20 
     command: dnf module enable nodejs:20 -y

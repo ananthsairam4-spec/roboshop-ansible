@@ -43,7 +43,6 @@
     template:
       src: user.service.j2
       dest: /etc/systemd/system/user.service
-      remote_src: yes
   - name: deamon reload
     systemd_service:
       name: user

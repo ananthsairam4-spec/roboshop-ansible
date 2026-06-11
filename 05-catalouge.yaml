@@ -54,7 +54,7 @@
       name: mongodb-mongosh
       state: present
   - name: check catalogue schema exist ot not
-    shell: mongosh --host "{{ MONGODB_HOST  }}" --eval 'db.getMongo().getDBNames().indexOf("catalogue")'
+    shell: mongosh --host "{{ MONGODB_HOST }}" --eval 'db.getMongo().getDBNames().indexOf("catalogue")'
     register: catalogue_output
     tags:
     - mongodb
@@ -64,7 +64,7 @@
     tags:
     - mongodb
   - name: load products
-    shell: mongosh --host "{{ MONGODB_HOST  }}" </app/db/master-data.js
+    shell: mongosh --host "{{ MONGODB_HOST }}" </app/db/master-data.js
     when: catalogue_output.stdout | int < 0
     tags:
     - mongodb

@@ -2,4 +2,10 @@ ansible_user: ec2-user
 ansible_password: DevOps321
 MONGODB_HOST: mongodb.sairamdaws.online
 REDIS_HOST: redis.sairamdaws.online
+MYSQL_HOST: mysql.sairamdaws.online 
+RABBITMQ_HOST: rabbitmq.sairamdaws.online 
 CATALOGUE_HOST: catalogue.sairamdaws.online
+USER_HOST: user.sairamdaws.online
+CART_HOST: cart.sairamdaws.online
+SHIPPING_HOST: shipping.sairamdaws.online
+PAYMENT_HOST: payment.sairamdaws.online
